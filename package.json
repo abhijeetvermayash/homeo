@@ -40,5 +40,9 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://homeomedicare.herokuapp.com/"
+
+  "proxy": "https://homeomedicare.herokuapp.com/",
+  "devDependencies": {
+    "mini-css-extract-plugin": "2.4.5"
+  }
 }
