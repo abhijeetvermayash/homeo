@@ -15,13 +15,20 @@ class Home extends Component {
   }
   Submit = () => {
     console.log("affa");
-    axios.post("/postDetails", this.state).then(() => {
-      console.log("Sucess");
-      this.setState({ status: "success" });
-      setTimeout(() => {
-        this.setState({ name: "", phone: "", disease: "", status: "pending" });
-      }, 2000);
-    });
+    axios
+      .post("https://homeomedicare.herokuapp.com/postDetails", this.state)
+      .then(() => {
+        console.log("Sucess");
+        this.setState({ status: "success" });
+        setTimeout(() => {
+          this.setState({
+            name: "",
+            phone: "",
+            disease: "",
+            status: "pending",
+          });
+        }, 2000);
+      });
   };
   render() {
     return (

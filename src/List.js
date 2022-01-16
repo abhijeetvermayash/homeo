@@ -28,10 +28,15 @@ class List extends Component {
                   onClick={async (e) => {
                     console.log("delete");
                     console.log(pat.Patient_number);
-                    await axios.delete(`/delete/${pat.Patient_number}`, {
-                      phone: pat.Patient_number,
-                    });
-                    const res = await axios.get("/retrivedata");
+                    await axios.delete(
+                      `https://homeomedicare.herokuapp.com/delete/${pat.Patient_number}`,
+                      {
+                        phone: pat.Patient_number,
+                      }
+                    );
+                    const res = await axios.get(
+                      "https://homeomedicare.herokuapp.com/retrivedata"
+                    );
                     this.setState({ result: res.data });
                     console.log("Deleted");
                   }}
@@ -47,7 +52,9 @@ class List extends Component {
   };
   componentDidMount = async () => {
     console.log(this.state.result.length);
-    const res = await axios.get("/retrivedata");
+    const res = await axios.get(
+      "https://homeomedicare.herokuapp.com/retrivedata"
+    );
     this.setState({ result: res.data });
   };
 
